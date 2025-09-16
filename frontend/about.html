@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - UPSRTC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo + Name -->
+        <div class="flex items-center space-x-3">
+          <img src="../imga/logo.png" alt="UPSRTC Logo" class="h-10 w-10" />
+          <span class="text-xl font-bold text-red-600">UPSRTC</span>
+        </div>
+        <!-- Nav Links -->
+        <div class="hidden md:flex space-x-6 text-red-600 font-semibold">
+          <a href="index.html" class="hover:underline">Home</a>
+          <a href="howitworks.html" class="hover:underline">How It Works</a>
+          <a href="news.html" class="hover:underline">News</a>
+          <a href="about.html" class="underline">About Us</a>
+          <a href="contact.html" class="hover:underline">Contact Us</a>
+        </div>
+        <!-- Hamburger -->
+        <div class="md:hidden">
+          <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="text-red-600 focus:outline-none">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white px-4 py-2 space-y-2 text-red-600 font-semibold">
+      <a href="index.html" class="block">Home</a>
+      <a href="howitworks.html" class="block">How It Works</a>
+      <a href="news.html" class="block">News</a>
+      <a href="about.html" class="block underline">About Us</a>
+      <a href="contact.html" class="block">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-r from-red-600 to-red-400 text-white text-center py-12 px-6">
+    <h1 class="text-3xl md:text-5xl font-bold">About UPSRTC</h1>
+    <p class="mt-4 text-lg md:text-xl">Committed to providing safe, reliable, and affordable transport for Uttar Pradesh</p>
+  </header>
+
+  <!-- About Content -->
+  <section class="max-w-6xl mx-auto py-12 px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src="../imga/govt.jpg" alt="UPSRTC Bus" class="rounded-lg shadow-lg">
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-red-600 mb-4">Who We Are</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Uttar Pradesh State Road Transport Corporation (UPSRTC) is the state-owned road transport service of Uttar Pradesh. Established to provide affordable, safe, and convenient public transportation, UPSRTC serves millions of passengers daily across the state and neighboring regions.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          With innovations like the <span class="font-semibold">Ticketless Bus System</span>, UPSRTC is stepping into the future of digital travel. Our mission is to make journeys seamless, eco-friendly, and passenger-centric while ensuring world-class service standards.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Vision Section -->
+  <section class="bg-white py-12 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-red-600 mb-8">Our Mission & Vision</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-red-600 mb-4">🚍 Mission</h3>
+          <p class="text-gray-700">To provide safe, comfortable, and reliable bus services at affordable fares, reaching every corner of Uttar Pradesh and beyond.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-red-600 mb-4">🌍 Vision</h3>
+          <p class="text-gray-700">To be recognized as India’s most modern and eco-friendly transport system, leveraging technology to enhance passenger experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team / Leadership Section -->
+  <section class="max-w-6xl mx-auto py-12 px-6">
+    <h2 class="text-2xl font-bold text-red-600 text-center mb-8">Our Leadership</h2>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <img src="https://source.unsplash.com/150x150/?person,man" alt="Leader" class="mx-auto rounded-full mb-4">
+        <h3 class="font-semibold text-lg">Shri Anurag Yadav</h3>
+        <p class="text-gray-500">Managing Director</p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <img src="https://source.unsplash.com/150x150/?person,woman" alt="Leader" class="mx-auto rounded-full mb-4">
+        <h3 class="font-semibold text-lg">Smt. Priya Sharma</h3>
+        <p class="text-gray-500">Chief Operations Officer</p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <img src="https://source.unsplash.com/150x150/?person,executive" alt="Leader" class="mx-auto rounded-full mb-4">
+        <h3 class="font-semibold text-lg">Shri Rakesh Verma</h3>
+        <p class="text-gray-500">Head of Digital Services</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 mt-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-gray-600">
+      <p>&copy; 2025 Uttar Pradesh State Road Transport Corporation. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

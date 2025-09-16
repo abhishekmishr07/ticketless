@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSRTC Ticketless System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+  <!-- Navbar -->
+  <nav class="bg-white/80 backdrop-blur shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+
+        <!-- Logo + Name -->
+        <div class="flex items-center space-x-3">
+          <img src="../imga/logo.png" alt="UPSRTC Logo" class="h-10 w-10 rounded-full shadow" />
+          <span class="text-lg md:text-xl font-bold text-red-600">
+            UPSRTC - उत्तर प्रदेश राज्य सड़क परिवहन निगम
+          </span>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="text-gray-700 hover:text-red-600 font-medium">Home</a>
+          <a href="howitwork.html" class="text-gray-700 hover:text-red-600 font-medium">How It Works</a>
+          <a href="news.html" class="text-gray-700 hover:text-red-600 font-medium">News</a>
+          <a href="about.html" class="text-gray-700 hover:text-red-600 font-medium">About Us</a>
+          <a href="contect.html" class="text-gray-700 hover:text-red-600 font-medium">Contact</a>
+        </div>
+
+        <!-- Hamburger -->
+        <button id="menuBtn" class="md:hidden text-red-600 focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" 
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white px-6 py-4 space-y-3 shadow-lg">
+      <a href="index.html" class="block text-gray-700 hover:text-red-600">Home</a>
+      <a href="howitwork.html" class="block text-gray-700 hover:text-red-600">How It Works</a>
+      <a href="news.html" class="block text-gray-700 hover:text-red-600">News</a>
+      <a href="about.html" class="block text-gray-700 hover:text-red-600">About Us</a>
+      <a href="contect.html" class="block text-gray-700 hover:text-red-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+ <header class="relative bg-gradient-to-r from-red-600 to-red-500 text-white text-center py-12 px-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-2xl md:text-4xl font-bold drop-shadow-md">
+      Welcome to UPSRTC Ticketless Bus System
+    </h1>
+    <p class="mt-4 text-base md:text-lg text-gray-100">
+      Scan • Pay • Travel — A smarter, faster way to board government buses
+    </p>
+  </div>
+</header>
+
+
+  <!-- Bus Information -->
+  <section class="max-w-5xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-bold text-red-600 mb-8 text-center">Bus Information</h2>
+    <div class="bg-white/70 backdrop-blur shadow-lg rounded-2xl p-8 grid gap-6 md:grid-cols-2">
+      <div>
+        <p class="font-semibold text-gray-800">Bus Number:</p>
+        <p class="text-gray-600">UP32AB1234</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-800">Depot Name:</p>
+        <p class="text-gray-600">Alambagh Depot</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-800">Driver Name:</p>
+        <p class="text-gray-600">Ramesh Singh</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-800">Conductor Name:</p>
+        <p class="text-gray-600">Anil Kumar</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="max-w-5xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-bold text-red-600 mb-8 text-center">Book Your Ticket</h2>
+    <div class="bg-white shadow-lg rounded-2xl p-8 space-y-6">
+      <div>
+        <label class="block font-semibold text-gray-700 mb-1">Source District</label>
+        <select class="w-full border-gray-300 focus:ring-2 focus:ring-red-500 rounded-lg p-3" ">
+          <option disabled selected>Select Source</option>
+          <option>Lucknow</option>
+          <option>Noida</option>
+          <option>Kanpur</option>
+          <option>Agra</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-semibold text-gray-700 mb-1">Destination District</label>
+        <select class="w-full border-gray-300 focus:ring-2 focus:ring-red-500 rounded-lg p-3" onchange="generateFare()">
+          <option disabled selected>Select Destination</option>
+          <option>Varanasi</option>
+          <option>Allahabad</option>
+          <option>Ghaziabad</option>
+          <option>Meerut</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-semibold text-gray-700 mb-1">Fare Price</label>
+        <input type="text" id="farePrice" class="w-full border-gray-300 rounded-lg p-3 bg-gray-50 text-gray-700" placeholder="--" disabled />
+      </div>
+      <button id="proceedBtn"
+        class="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300">
+        Proceed to Pay
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer with Bus Models -->
+  <footer class="bg-gray-100 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <h3 class="text-xl font-bold text-red-600 mb-8 text-center">Bus Models by UPSRTC</h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="../imga/bus1.jpg" alt="Ordinary Bus" class="w-full h-36 object-cover" />
+          <p class="text-center py-3 font-medium text-gray-700">Ordinary Bus</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="../imga/bus2.jpg" alt="AC Bus" class="w-full h-36 object-cover" />
+          <p class="text-center py-3 font-medium text-gray-700">Volvo AC Bus</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="../imga/bus3.png" alt="Volvo Bus" class="w-full h-36 object-cover" />
+          <p class="text-center py-3 font-medium text-gray-700">Pink Bus</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="../imga/bus4.jpg" alt="Janrath Bus" class="w-full h-36 object-cover" />
+          <p class="text-center py-3 font-medium text-gray-700">Janrath Bus</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="../imga/bus5.jpg" alt="Luxury Bus" class="w-full h-36 object-cover" />
+          <p class="text-center py-3 font-medium text-gray-700">Electric Bus</p>
+        </div>
+      </div>
+
+      <p class="mt-10 text-sm text-center text-gray-500">
+        © 2025 Uttar Pradesh State Road Transport Corporation. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Fare Generator
+    function generateFare() {
+      const fare = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+      document.getElementById("farePrice").value = "₹" + fare;
+    }
+
+    // Proceed Button
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("proceedBtn").addEventListener("click", function () {
+        window.location.href = "payment.html";
+      });
+    });
+
+    // Mobile Menu Toggle
+    document.getElementById("menuBtn").addEventListener("click", function () {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("hidden");
+
+      // Animate Hamburger ↔ Cross
+      const icon = document.getElementById("menuIcon");
+      if (menu.classList.contains("hidden")) {
+        icon.setAttribute("d", "M4 6h16M4 12h16M4 18h16"); // Hamburger
+      } else {
+        icon.setAttribute("d", "M6 18L18 6M6 6l12 12"); // Cross
+      }
+    });
+  </script>
+
+</body>
+</html>

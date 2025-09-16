@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works - UPSRTC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo + Name -->
+        <div class="flex items-center space-x-3">
+          <img src="../imga/logo.png" alt="UPSRTC Logo" class="h-10 w-10" />
+          <span class="text-xl font-bold text-red-600">UPSRTC</span>
+        </div>
+        <!-- Nav Links -->
+        <div class="hidden md:flex space-x-6 text-red-600 font-semibold">
+          <a href="index.html" class="hover:underline">Home</a>
+          <a href="howitworks.html" class="underline">How It Works</a>
+          <a href="#news" class="hover:underline">News</a>
+          <a href="#about" class="hover:underline">About Us</a>
+          <a href="#contact" class="hover:underline">Contact Us</a>
+        </div>
+        <!-- Hamburger -->
+        <div class="md:hidden">
+          <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="text-red-600 focus:outline-none">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white px-4 py-2 space-y-2 text-red-600 font-semibold">
+      <a href="index.html" class="block">Home</a>
+      <a href="howitworks.html" class="block underline">How It Works</a>
+      <a href="news.html" class="block">News</a>
+      <a href="about.html" class="block">About Us</a>
+      <a href="contect.html" class="block">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-r from-red-600 to-red-400 text-white text-center py-12 px-6">
+    <h1 class="text-3xl md:text-5xl font-bold">How It Works</h1>
+    <p class="mt-4 text-lg md:text-xl">Your journey with UPSRTC in just a few simple steps</p>
+  </header>
+
+  <!-- Roadmap Section -->
+  <section class="max-w-5xl mx-auto py-12 px-4">
+    <div class="space-y-12">
+
+      <!-- Step 1 -->
+      <div class="flex flex-col md:flex-row items-center gap-6 bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <div class="bg-red-100 text-red-600 p-4 rounded-full">
+          <span class="text-3xl">📲</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-red-600">Step 1: Scan the QR</h3>
+          <p class="text-gray-600 mt-2">Scan the QR code behind your seat using your smartphone to access the ticket booking system.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col md:flex-row items-center gap-6 bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <div class="bg-red-100 text-red-600 p-4 rounded-full">
+          <span class="text-3xl">📝</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-red-600">Step 2: Enter Details</h3>
+          <p class="text-gray-600 mt-2">Select your source and destination districts and the system will generate your fare automatically.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col md:flex-row items-center gap-6 bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <div class="bg-red-100 text-red-600 p-4 rounded-full">
+          <span class="text-3xl">💳</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-red-600">Step 3: Make Payment</h3>
+          <p class="text-gray-600 mt-2">Choose your preferred payment method: UPI, Card, Net Banking, or Cash to Conductor.</p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex flex-col md:flex-row items-center gap-6 bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <div class="bg-red-100 text-red-600 p-4 rounded-full">
+          <span class="text-3xl">✅</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-red-600">Step 4: Get Ticket</h3>
+          <p class="text-gray-600 mt-2">After successful payment, you will receive a digital ticket with QR verification details.</p>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="flex flex-col md:flex-row items-center gap-6 bg-white shadow rounded-lg p-6 hover:shadow-lg transition">
+        <div class="bg-red-100 text-red-600 p-4 rounded-full">
+          <span class="text-3xl">🚌</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-red-600">Step 5: Travel Hassle-Free</h3>
+          <p class="text-gray-600 mt-2">Show your ticket QR to the conductor for verification and enjoy your seamless journey.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 mt-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-gray-600">
+      <p>&copy; 2025 Uttar Pradesh State Road Transport Corporation. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>UPSRTC – Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center space-x-3">
+        <img src="logo.png" alt="UPSRTC Logo" class="h-10">
+        <h1 class="text-xl font-bold text-red-600">Uttar Pradesh State Road Transport Corporation</h1>
+      </div>
+      <!-- Desktop Links -->
+      <div class="hidden md:flex space-x-6 text-red-600 font-semibold">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About Us</a>
+        <a href="news.html" class="hover:underline">News</a>
+        <a href="howitwork.html" class="hover:underline">How It Works</a>
+        <a href="contect.html" class="hover:underline">Contact Us</a>
+      </div>
+      <!-- Hamburger -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-red-600 text-2xl">&#9776;</button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="menu" class="hidden md:hidden bg-white p-4 text-red-600 space-y-3">
+      <a href="index.html" class="block">Home</a>
+      <a href="about.html" class="block">About Us</a>
+      <a href="news.html" class="block">News</a>
+      <a href="howitwork.html" class="block">How It Works</a>
+      <a href="contect.html" class="block">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <section class="text-center bg-red-600 text-white py-6">
+    <h2 class="text-2xl font-bold">Secure Your Journey with Easy Digital Payments</h2>
+    <p class="mt-2">Multiple payment options for your convenience</p>
+  </section>
+
+  <!-- Payment Options -->
+  <section class="container mx-auto p-6">
+    <div class="bg-white shadow-md rounded-xl p-6 max-w-lg mx-auto">
+      <h3 class="text-xl font-semibold mb-4 text-center text-red-600">Choose a Payment Method</h3>
+      <div class="grid gap-4">
+       <button 
+  class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow" 
+  onclick="window.location.href='ticket.html'">
+  Pay with UPI
+</button>
+
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg shadow">Pay with Card</button>
+        <button class="bg-gray-600 hover:bg-gray-700 text-white py-3 rounded-lg shadow">Cash to Conductor</button>
+        <button class="bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg shadow">Net Banking</button>
+      </div>
+      <p class="mt-6 text-sm text-center text-gray-500">*This is a demo UI. Future integration with real payment gateways will be added.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow-inner mt-8">
+    <div class="container mx-auto text-center py-4 text-red-600">
+      <p>&copy; 2025 UPSRTC | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

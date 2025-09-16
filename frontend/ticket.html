@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPSRTC Ticketless Bus System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Hero Section -->
+  <header class="relative bg-gradient-to-r from-red-600 to-red-500 text-white text-center py-12 px-6 shadow-md">
+    <div class="max-w-2xl mx-auto">
+      <h1 class="text-2xl md:text-4xl font-bold drop-shadow-md">
+        Welcome to UPSRTC Ticketless Bus System
+      </h1>
+      <p class="mt-4 text-base md:text-lg text-gray-100">
+        Scan • Pay • Travel — A smarter, faster way to board government buses
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="max-w-3xl mx-auto py-10 px-4">
+
+    <!-- Pay with UPI -->
+    <div class="bg-white rounded-2xl shadow-md p-6 mb-6">
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">Pay Using UPI</h3>
+      <p class="text-gray-600">Scan the QR below to pay:</p>
+      <div class="flex flex-col items-center mt-4">
+        <img src="../qr.jpg" alt="UPI QR Code" class="w-48 h-48 rounded-lg shadow" />
+        <p class="mt-3 text-lg font-medium text-gray-800">
+          UPI ID: <span class="text-blue-600">am8176033@okicici</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Payment Confirmation -->
+    <div class="bg-white rounded-2xl shadow-md p-6 mb-6">
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">Confirm Payment</h3>
+      <input id="payerName" type="text" placeholder="Enter Passenger Name"
+             class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <div class="mt-5 flex space-x-4">
+        <button id="paidBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl shadow">
+          I've Paid
+        </button>
+        <button id="failBtn" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-xl">
+          Payment Failed
+        </button>
+      </div>
+      <p id="statusMsg" class="mt-4 text-sm text-center text-gray-600"></p>
+    </div>
+
+    <!-- Ticket Section -->
+    <div id="ticketArea" class="hidden bg-white rounded-2xl shadow-md p-6">
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">Your Ticket</h3>
+      <div id="ticketContent" class="text-gray-800 space-y-1 text-lg"></div>
+      <div class="mt-6 text-center">
+        <p class="mb-2 text-gray-600">QR for Conductor Verification:</p>
+        <canvas id="ticketQr" class="mx-auto border-4 border-dashed border-gray-300 p-2 rounded-xl"></canvas>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Generate random ticket
+function generateTicket(name){
+  return {
+    ticketId: "TKT" + Math.floor(Math.random()*1000000),
+    passenger: name || "Passenger",
+    source: "Greater Noida",
+    destination: "Noida Sector 62",
+    time: new Date(Date.now() + 60*60*1000).toLocaleString(), // 1 hr later
+    busNumber: "UP-" + Math.floor(1000 + Math.random()*9000),
+    depot: "Noida Bus Depot",
+    fare: 50
+  };
+}
+
+// Handle "I've Paid"
+document.getElementById('paidBtn').addEventListener('click', ()=>{
+  const name = document.getElementById('payerName').value || "Passenger";
+  const t = generateTicket(name);
+
+  document.getElementById('ticketContent').innerHTML = `
+    <p><b>Ticket ID:</b> ${t.ticketId}</p>
+    <p><b>Passenger:</b> ${t.passenger}</p>
+    <p><b>From:</b> ${t.source}</p>
+    <p><b>To:</b> ${t.destination}</p>
+    <p><b>Time:</b> ${t.time}</p>
+    <p><b>Bus No:</b> ${t.busNumber}</p>
+    <p><b>Depot:</b> ${t.depot}</p>
+    <p><b>Fare:</b> ₹${t.fare}</p>
+  `;
+
+  document.getElementById('ticketArea').classList.remove('hidden');
+  document.getElementById('statusMsg').innerText = "Ticket generated ✅";
+
+  // QR Payload for conductor
+  const qrPayload = JSON.stringify({
+    ticketId: t.ticketId,
+    busNumber: t.busNumber,
+    source: t.source,
+    destination: t.destination,
+    time: t.time
+  });
+
+  QRCode.toCanvas(document.getElementById('ticketQr'), qrPayload, (err)=>{
+    if (err) console.error(err);
+  });
+});
+
+// Handle "Payment Failed"
+document.getElementById('failBtn').addEventListener('click', ()=>{
+  document.getElementById('statusMsg').innerText = "Payment marked failed ❌";
+  document.getElementById('ticketArea').classList.add('hidden');
+});
+</script>
+</body>
+</html>
